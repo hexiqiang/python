@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from article import views as art_views  # new
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', art_views.index),  # new
+    # name的的值是执行函数名
+    url(r'^add/$', art_views.add, name='add'),  # 注意修改了这一行
+    url(r'^add/(\w+)/(\w+)/$', art_views.add2, name='add2'),  #使用正则匹配
 ]
