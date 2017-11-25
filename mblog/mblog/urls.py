@@ -16,11 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from article import views as art_views  # new
+from pic import views as pic_views  # new
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^$', art_views.index,name='home'),  # new
-    url(r'^$', art_views.home, name='home'),  # new
+    url(r'^art$', art_views.home, name='home'),  # new
+    url(r'^pic$', pic_views.home, name='home'),  # new
     # r'^add/$'是网址显示的名称
     # name的的值是执行函数名
     url(r'^add/$', art_views.add, name='add'),  # 注意修改了这一行
