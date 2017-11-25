@@ -9,7 +9,7 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 
 # 添加模板文件
-def index(request):
+def home(request):
     return render(request, 'home.html')
 
 
