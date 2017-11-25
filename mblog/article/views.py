@@ -1,9 +1,14 @@
+# 引入模板模块
 from django.shortcuts import render
 
-# Create your views here.
 from django.http import HttpResponse
 
+from django.urls import reverse
 
+from django.http import HttpResponseRedirect
+# Create your views here.
+
+# 添加模板文件
 def index(request):
     return render(request, 'home.html')
 
@@ -17,3 +22,8 @@ def add(request):
 def add2(request, a, b):
     c = a + b
     return HttpResponse(str(c))
+
+def old_add2_redirect(request, a, b):
+    return HttpResponseRedirect(
+        reverse('add2', args=(a, b))
+    )
